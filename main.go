@@ -80,7 +80,6 @@ func downloadFolder(owner, repo, branch, path, localPath string) error {
 
 	// Durchlaufe alle Inhalte und handle entsprechend
 	for _, item := range contents {
-		// Anpassung: Vermeide das Beibehalten der Repository-Verzeichnisstruktur
 		localItemPath := filepath.Join(localPath, item.Name)
 		if item.Type == "file" {
 			fmt.Printf("Herunterladen der Datei: %s\n", item.DownloadURL)
@@ -180,7 +179,6 @@ func main() {
 		fmt.Printf("Datei erfolgreich heruntergeladen: %s\n", fileName)
 	} else {
 		// Ordner herunterladen
-		// Anpassung: Erstelle einen Ordner im aktuellen Arbeitsverzeichnis
 		localPath := filepath.Join(".", folderName)
 		fmt.Printf("Erstelle den Ordner: %s\n", localPath)
 		err := os.MkdirAll(localPath, os.ModePerm)
